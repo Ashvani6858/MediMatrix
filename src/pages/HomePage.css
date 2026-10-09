@@ -1,0 +1,196 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0 60px;
+}
+
+/* Animated grid background */
+.hero__bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,180,166,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,180,166,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 80%);
+}
+
+.hero__content {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.hero__eyebrow { margin-bottom: 24px; }
+
+.hero__title {
+  color: var(--white);
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+.hero__title-accent {
+  background: linear-gradient(135deg, var(--teal) 0%, #7fffd4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero__subtitle {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  color: var(--text-muted);
+}
+
+/* Search Card */
+.search-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(20px);
+  padding: 28px;
+  margin-bottom: 24px;
+  text-align: left;
+  box-shadow: var(--shadow-lg);
+}
+.search-card__fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.search-field__label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.search-field__icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search-field__icon {
+  position: absolute;
+  left: 14px;
+  font-size: 1rem;
+  z-index: 1;
+  pointer-events: none;
+}
+.search-field__input { padding-left: 42px !important; }
+
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0; right: 0;
+  background: var(--navy-mid);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  list-style: none;
+  z-index: 50;
+  overflow: hidden;
+  margin-top: 4px;
+}
+.search-suggestions li {
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: var(--text-main);
+  transition: background 0.15s;
+}
+.search-suggestions li:hover { background: var(--teal-glow); color: var(--teal); }
+
+.search-card__btn { width: 100%; justify-content: center; padding: 14px; font-size: 1rem; }
+
+.hero__popular {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.hero__popular-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.hero__pill {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--font-body);
+}
+.hero__pill:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+  background: var(--teal-glow);
+}
+
+/* Features */
+.features { padding: 80px 0; }
+.features__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.feature-card { padding: 28px; }
+.feature-card__icon { font-size: 2rem; margin-bottom: 16px; }
+.feature-card__title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+.feature-card__desc { font-size: 0.88rem; line-height: 1.6; }
+
+/* Stats */
+.stats {
+  padding: 60px 0 80px;
+}
+.stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+.stat-item {
+  background: var(--card-bg);
+  padding: 36px 24px;
+  text-align: center;
+}
+.stat-item__number {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 6px;
+}
+.stat-item__label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .search-card__fields { grid-template-columns: 1fr; }
+  .features__grid { grid-template-columns: repeat(2, 1fr); }
+  .stats__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .features__grid { grid-template-columns: 1fr; }
+  .stats__grid { grid-template-columns: repeat(2, 1fr); }
+}
